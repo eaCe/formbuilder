@@ -7,5 +7,7 @@
 $content = $this->getVar('content');
 ?>
 <?php if ($content) : ?>
-<?= $content ?>
+<div class="list">
+    <?= $content ?>
+</div>
 <?php endif; ?>

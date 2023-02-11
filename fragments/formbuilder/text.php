@@ -13,9 +13,9 @@ if (!$field) {
 
 <?php switch ($field->getTemplate()): ?>
 <?php case 'list': ?>
-    <div>Image - List Output</div>
+    <div>Text - List Output</div>
 <?php break; ?>
 <?php case 'cards': ?>
-    <div>Image - Cards Output</div>
+    <div>Text - Cards Output</div>
 <?php break; ?>
 <?php endswitch; ?>

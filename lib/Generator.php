@@ -32,13 +32,21 @@ class Generator
     private function getContent(): string
     {
         $content = '';
+        $charactersToTrim = " \t\n\r\0\x0B";
+        $i = 0;
 
         foreach ($this->fields as $field) {
             try {
                 $fragment = new rex_fragment();
                 $fragment->setVar('field', new Field($field, $this->table, $this->template));
-                $content .= trim($fragment->parse("formbuilder/$field->field_type.php"));
+                $content .= trim($fragment->parse("formbuilder/$field->field_type.php"), $charactersToTrim);
                 $content .= PHP_EOL;
+
+                if (0 === $i) {
+                    $charactersToTrim = "\t\n\r\0\x0B";
+                }
+
+                ++$i;
             } catch (Exception $e) {
                 continue;
             }
