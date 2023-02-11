@@ -6,7 +6,7 @@
 
 <div class="-mt-4 mb-4">
     <template x-for="(field, index) in fields" :key="field.uid">
-        <div class="relative flex -mx-2 mt-4 items-end" x-init="console.log(fields[index])">
+        <div class="relative flex -mx-2 mt-4 items-end">
             <div
                 class="mx-2 py-2 w-3/12">
                 <label :for="'field_name_'+index">
@@ -38,6 +38,7 @@
                 </label>
                 <select
                     class="form-control"
+                    x-model="fields[index].field_type"
                     :id="'field_type_'+index">
                     <option value="" disabled></option>
                     <option value="image">Image</option>
