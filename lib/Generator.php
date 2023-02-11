@@ -26,7 +26,7 @@ class Generator
     public function generateTemplate(): string
     {
         $content = $this->getContent();
-        return trim($this->getTemplate($content));
+        return str_replace(['@php', '@endphp'], ['<?php', '?>'], trim($this->getTemplate($content)));
     }
 
     private function getContent(): string

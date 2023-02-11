@@ -13,6 +13,9 @@ if (!$field) {
 
 <?php switch ($field->getTemplate()): ?>
 <?php case 'list': ?>
+    @php
+        $test = 'test';
+    @endphp
     <div>Text - List Output</div>
 <?php break; ?>
 <?php case 'cards': ?>
