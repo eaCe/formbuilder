@@ -8,7 +8,7 @@ class rex_api_formbuilder extends rex_api_function
 
     /**
      * @throws rex_exception
-     * @return rex_api_result|void
+     * @return void
      */
     public function execute()
     {
@@ -19,13 +19,23 @@ class rex_api_formbuilder extends rex_api_function
         }
 
         $table = rex_get('table', 'string');
+        $generateTemplate = rex_post('generate', 'bool');
 
-        if ($table) {
+        if ($table && !$generateTemplate) {
             $fields = Builder::getFieldsByTableName($table);
             $fragment = new rex_fragment();
             $fragment->setVar('fields', $fields);
             echo $fragment->parse('formbuilder/backend/field-select.php');
         }
+
+        if ($generateTemplate) {
+            $table = rex_post('table', 'string');
+            $template = rex_post('template', 'string');
+            $fields = json_decode(rex_post('fields'), false);
+            // TODO: generate templates...
+            echo 'generate template...';
+        }
+
         exit;
     }
 }
