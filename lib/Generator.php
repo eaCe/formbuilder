@@ -53,7 +53,7 @@ class Generator
         try {
             $fragment = new rex_fragment();
             $fragment->setVar('content', $content);
-            $template = $fragment->parse("formbuilder/$this->template.php");
+            $template = trim($fragment->parse("formbuilder/$this->template.php"));
         } catch (Exception $e) {
         }
 
