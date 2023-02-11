@@ -5,12 +5,11 @@
 
 $tablesArray = \FriendsOfREDAXO\Builder::getTablesArray();
 ?>
-<form class="form-group"
-      method="get"
+<form method="get"
       :action="rex.fb_url"
       x-target="field-select"
-      @ajax:before="unsetTable();showFieldSelection=false"
-      @ajax:after="setTable()"
+      @ajax:before="unsetTable();showLoader();showFieldSelection=false"
+      @ajax:after="setTable();hideLoader()"
       x-ajax>
     <label for="table-select">
         <?= rex_i18n::msg('formbuilder_table_select') ?>

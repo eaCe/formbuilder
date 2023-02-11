@@ -7,7 +7,7 @@
 $fields = $this->getVar('fields');
 ?>
 
-<div class="relative">
+<div class="relative form-group">
     <button class="btn btn-primary"
             :disabled="table==''"
             @click.prevent="showFieldSelection=!showFieldSelection">
@@ -15,7 +15,7 @@ $fields = $this->getVar('fields');
     </button>
 
     <ul id="field-select"
-        class="absolute left-0 bg-white list-unstyled rounded-md overflow-auto max-h-80 min-w-[200px] divide-y divide-solid divide-gray-200 border border-solid border-gray-200 my-1"
+        class="absolute left-0 bg-white list-unstyled rounded-md overflow-auto max-h-80 min-w-[200px] divide-y divide-solid divide-gray-200 border border-solid border-gray-200 my-1 z-10"
         @click.outside="showFieldSelection=false"
         x-show="showFieldSelection">
         <?php
