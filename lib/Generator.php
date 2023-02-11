@@ -38,6 +38,7 @@ class Generator
                 $fragment = new rex_fragment();
                 $fragment->setVar('field', new Field($field, $this->table, $this->template));
                 $content .= trim($fragment->parse("formbuilder/$field->field_type.php"));
+                $content .= PHP_EOL;
             } catch (Exception $e) {
                 continue;
             }
