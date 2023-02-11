@@ -23,18 +23,12 @@ class Generator
         $this->fields = $fields;
     }
 
-    /**
-     * @return string
-     */
     public function generateTemplate(): string
     {
         $content = $this->getContent();
-        return $this->getTemplate($content);
+        return trim($this->getTemplate($content));
     }
 
-    /**
-     * @return string
-     */
     private function getContent(): string
     {
         $content = '';
@@ -43,7 +37,7 @@ class Generator
             try {
                 $fragment = new rex_fragment();
                 $fragment->setVar('field', new Field($field, $this->table, $this->template));
-                $content .= $fragment->parse("formbuilder/$field->field_type.php");
+                $content .= trim($fragment->parse("formbuilder/$field->field_type.php"));
             } catch (Exception $e) {
                 continue;
             }
@@ -52,10 +46,6 @@ class Generator
         return $content;
     }
 
-    /**
-     * @param string $content
-     * @return string
-     */
     private function getTemplate(string $content): string
     {
         $template = '';

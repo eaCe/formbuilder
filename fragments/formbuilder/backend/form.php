@@ -46,4 +46,13 @@
     $fragment = new rex_fragment();
     echo $fragment->parse('formbuilder/backend/generate-button.php');
     ?>
+
+    <template x-if="showTemplate">
+        <div class="mt-6">
+            <?php
+            $fragment = new rex_fragment();
+            echo $fragment->parse('formbuilder/backend/output.php');
+            ?>
+        </div>
+    </template>
 </div>

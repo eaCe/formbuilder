@@ -8,7 +8,9 @@
     method="post"
     x-ajax
     @ajax:before="showLoader()"
-    @ajax:after="hideLoader()"
+    @ajax:after="hideLoader();showTemplate=true"
+    @ajax:error="showTemplate=false"
+    x-target="template"
     :action="rex.fb_url">
     <button
         class="btn btn-success"

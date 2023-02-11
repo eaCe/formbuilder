@@ -34,7 +34,9 @@ class rex_api_formbuilder extends rex_api_function
             $template = rex_post('template', 'string');
             $fields = json_decode(rex_post('fields'), false);
             $generator = new Generator($table, $template, $fields);
-            echo $generator->generateTemplate();
+            $fragment = new rex_fragment();
+            $fragment->setVar('output', $generator->generateTemplate());
+            echo $fragment->parse('formbuilder/backend/output.php');
         }
 
         exit;

@@ -4,6 +4,7 @@
             table: '',
             template: '',
             showFieldSelection: false,
+            showTemplate: false,
             fields: [],
             loader: document.getElementById('rex-js-ajax-loader'),
             init() {
@@ -56,8 +57,6 @@
                     template: this.template,
                     fields: this.fields
                 }
-
-                console.log('builder.php:45', '  ↴', '\n', data);
             },
             showLoader() {
                 this.loader.classList.add('rex-visible');

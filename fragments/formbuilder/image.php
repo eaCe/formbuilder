@@ -6,6 +6,4 @@
 /** @var array $field */
 $field = $this->getVar('field');
 ?>
-
-<?php if ($field) : ?>
-<?php endif; ?>
+<div>hello world</div>
