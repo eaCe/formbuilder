@@ -17,7 +17,7 @@
                     this.$refs.tableSelect.value = '';
 
                     // TODO: remove
-                    // this.fakeData();
+                    this.fakeData();
                 }, 1)
             },
             setTable() {

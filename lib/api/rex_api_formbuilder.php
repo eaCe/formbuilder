@@ -1,6 +1,7 @@
 <?php
 
 use FriendsOfREDAXO\Builder;
+use FriendsOfREDAXO\Generator;
 
 class rex_api_formbuilder extends rex_api_function
 {
@@ -32,8 +33,8 @@ class rex_api_formbuilder extends rex_api_function
             $table = rex_post('table', 'string');
             $template = rex_post('template', 'string');
             $fields = json_decode(rex_post('fields'), false);
-            // TODO: generate templates...
-            echo 'generate template...';
+            $generator = new Generator($table, $template, $fields);
+            echo $generator->generateTemplate();
         }
 
         exit;
