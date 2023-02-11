@@ -1,0 +1,37 @@
+package: formbuilder
+version: '0.0.1-dev'
+author: 'eaCe'
+
+requires:
+    redaxo: ^5.13.0
+    php:
+        version: '>=7.4'
+
+page:
+    title: 'translate:title'
+    pjax: true
+    perm: admin[]
+    icon: rex-icon fa-tasks
+    subpages:
+        builder:
+            title: 'translate:title'
+
+installer_ignore:
+    - node_modules
+    - .git
+    - .gitignore
+    - .github
+    - tests
+    - .tools
+    - package.json
+    - yarn.lock
+    - resources
+    - .editorconfig
+    - .eslintrc.js
+    - .stylelintrc.js
+    - phpcs.xml
+    - phpunit.xml.dist
+    - composer.json
+    - composer
+    - tailwind.config.js
+    - webpack.mix.js
