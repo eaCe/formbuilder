@@ -8,4 +8,10 @@ Alpine.plugin(ajax);
 
 Alpine.start();
 
+Alpine.directive('cleanup', (el, {}, {cleanup}) => {
+    cleanup(_ => {
+        el._x_model.set(undefined)
+    })
+});
+
 import './builder';

@@ -30,14 +30,25 @@
                 this.table = '';
             },
             addField(field) {
-                field['field_type'] = '';
-                this.fields.push(field);
+                // clone field object, destroy reference
+                const fieldObject = Object.assign({}, field);
+                fieldObject['field_type'] = '';
+                fieldObject['uid'] = this.getUID();
+                this.fields.push(fieldObject);
                 this.showFieldSelection = false;
             },
             deleteField(index) {
                 if (confirm('Delete field?')) {
                     this.fields.splice(index, 1);
                 }
+            },
+            getUID(){
+                let timestamp = new Date().getTime();
+                return 'xxxxxxxxxxxxxxxxxxx'.replace(/[x]/g, function (c) {
+                    const r = (timestamp + Math.random() * 16) % 16 | 0;
+                    timestamp = Math.floor(timestamp / 16);
+                    return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+                });
             },
             generateTemplate() {
                 const data = {
@@ -65,21 +76,24 @@
                         label: 'Test',
                         name: 'test',
                         type: 'value',
-                        type_name: 'text'
+                        type_name: 'text',
+                        uid: this.getUID()
                     },
                     {
                         field_type: 'textarea',
                         label: 'Test',
                         name: 'test',
                         type: 'value',
-                        type_name: 'text'
+                        type_name: 'text',
+                        uid: this.getUID()
                     },
                     {
                         field_type: 'text',
                         label: 'Test',
                         name: 'test',
                         type: 'value',
-                        type_name: 'text'
+                        type_name: 'text',
+                        uid: this.getUID()
                     }
                 ];
             }
